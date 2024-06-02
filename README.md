@@ -17,4 +17,4 @@
   <li>Alternar cores entre modos noturno e diurno</li>
 </ul>
 <h3><a href="https://alvaronrs.github.io/Checkado/">Teste a página aqui</a></h3>
-<h3><a href="https://alvaronrs.github.io/Checkado/](https://www.figma.com/design/G35WYRPNIskOEWy07VNCnS/Telas---Projeto-Tarefas?node-id=0-1&t=kyII3HKRn8jC5onh-1)">Veja o protótipo feito no Figma</a></h3>
+<h3><a href="https://www.figma.com/design/G35WYRPNIskOEWy07VNCnS/Telas---Projeto-Tarefas?node-id=0-1&t=kyII3HKRn8jC5onh-1">Veja o protótipo feito no Figma</a></h3>

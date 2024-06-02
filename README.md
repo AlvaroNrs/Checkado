@@ -1,6 +1,6 @@
 <h1>Checkado</h1>
 
-<p>Projeto com função de quadro Kanbam, ainda não finalizado</p>
+<p>Projeto com função de quadro Kanban, ainda não finalizado</p>
 
 <h2>Destaques e Funções:</h2>
 <ul>

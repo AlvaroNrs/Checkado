@@ -15,5 +15,5 @@
 <ul>
   <li>Função de mover tarefa entre quadros</li>
   <li>Alternar cores entre modos noturno e diurno</li>
-</ul>ul
-<!--<h3><a href="https://chronometrus.vercel.app">Teste a página aqui</a></h3>-->
+</ul>
+<h3><a href="https://alvaronrs.github.io/Checkado/">Teste a página aqui</a></h3>

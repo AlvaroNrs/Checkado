@@ -4,11 +4,20 @@
 :root {
     --cor-inicial-fundo: #262859;
     --cor-final-fundo: #F3858E;
+    --rosa-salmao-fazendo: #F3858E;
     --branco-fonte: #EEEEEE;
     --verde-a-fazer: #18A698;
     --azul-feito: #11B4BE;
+    --cor-final-fundo-modo-claro: #F3858E;
+    --rosa-salmao-fazendo-modo-claro: #F3858E;
+    --verde-a-fazer-modo-claro: #18A698;
+    --cor-final-fundo-modo-escuro: #0B332F;
+    --verde-a-fazer-modo-escuro: #19867B;
+    --rosa-salmao-fazendo-modo-escuro: #E07881;
     --preto: #0F0F0F;
     --fonte-principal: "Jockey One", sans-serif;
+    --icone-modo-claro: url(./img/Ícone Light.png);
+    --icone-modo-escuro: url(./img/Ícone Dark.png);
 }
 
 body{
@@ -82,6 +91,10 @@ main {
     width: 33.3%;
 }
 
+.botao_interativo :hover {
+    filter: opacity(80%);
+}
+
 .espaco_quadros {
     justify-content: center;
     display: flex;
@@ -114,7 +127,7 @@ main {
 }
 
 .fazendo {
-    background-color: var(--cor-final-fundo);
+    background-color: var(--rosa-salmao-fazendo);
 }
 
 .feito {
@@ -139,6 +152,10 @@ main {
 .botao_quadro button {
     border: none;
     background-color: transparent;
+}
+
+.botao_quadro button :hover{
+    filter: opacity(80%);
 }
 
 .item {
@@ -222,8 +239,9 @@ main {
     border: var(--verde-a-fazer) solid 0.15em;
 }
 
+
 .botao_acao_botao_quadro_nova_tarefa_fazendo {
-    border: var(--cor-final-fundo) solid 0.15em;
+    border: var(--rosa-salmao-fazendo) solid 0.15em;
 }
 
 .botao_acao_botao_quadro_nova_tarefa_feito {
@@ -291,7 +309,7 @@ main {
 
 .quadro_opcoes_tarefa_fazendo,
 .quadro_opcoes_tarefa_fazendo button {
-    background-color: var(--cor-final-fundo);
+    background-color: var(--rosa-salmao-fazendo);
 }
 
 .quadro_opcoes_tarefa_feito,
@@ -331,7 +349,7 @@ main {
     background-color: var(--branco-fonte);
 }
 .conteudo_opcao_botao_tarefa_fazendo:hover {
-    color: var(--cor-final-fundo);
+    color: var(--rosa-salmao-fazendo);
     background-color: var(--branco-fonte);
 }
 .conteudo_opcao_botao_tarefa_feito:hover {

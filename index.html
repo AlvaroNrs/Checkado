@@ -12,7 +12,8 @@
         <ul class="separador_titulos_botao">
             <li class="separador_titulos_botao_item"></li>
             <li class="separador_titulos_botao_item"><h1 class="titulo_header">Checkado</h1></li>
-            <li id="botao_mudar_tema"><img src="./img/Ícone Light.png" alt="Ícone de Mudança de tema"></li>
+            <li class="botao_interativo" id="botao_mudar_tema"><img id="icone_tema_claro" src="./img/Ícone Light.png" alt="Ícone Claro de Mudança de tema">
+                <img id="icone_tema_escuro" class="hidden" src="./img/Ícone Dark.png" alt="Ícone Escuro de Mudança de tema"></li>
         </ul>
         <hr>
         <h2 class="subtitulo_header">Seu Organizador</h2>
@@ -21,7 +22,7 @@
         <ul class="separador_titulos_botao">
             <li class="separador_titulos_botao_item"></li>
             <li class="separador_titulos_botao_item"><h3 class="titulo_quadro" id="nome_quadro"></h3></li>
-            <li id="botao_editar_titulo"><img src="./img/Ícone Editar.png" alt="Ícone Editar Título"></li>
+            <li id="botao_editar_titulo" class="botao_interativo"><img src="./img/Ícone Editar.png" alt="Ícone Editar Título"></li>
         </ul>
         <section class="espaco_quadros">
             <section class="espaco_quadros_quadro a_fazer">
@@ -29,11 +30,11 @@
                     <ul class="separador_titulos_botao">
                         <li class="separador_titulos_botao_item"></li>
                         <li class="separador_titulos_botao_item"><h4>A FAZER</h4></li>
-                        <li class="botao_quadro"><button id="botao_limpar_quadro_a_fazer"><img src="./img/Ícone Limpar_Quadro.png" alt="Ícone Limpar Quadro"></button></li>
+                        <li class="botao_quadro botao_interativo"><button id="botao_limpar_quadro_a_fazer"><img src="./img/Ícone Limpar_Quadro.png" alt="Ícone Limpar Quadro"></button></li>
                     </ul>
                     <div id="tarefas_a_fazer">
                     </div>
-                    <div class="item botao_nova_tarefa" id="nova_tarefa_a_fazer">
+                    <div class="item botao_nova_tarefa botao_interativo" id="nova_tarefa_a_fazer">
                         <div class="conteudo_botao_nova_tarefa">
                             <p>Adcionar Nova Tarefa</p>
                             <img src="./img/Ícone Novo.png" class="icone_nova_tarefa" alt="Ícone Nova Tarefa">
@@ -44,8 +45,8 @@
                         <div class="botao_quadro_nova_tarefa">
                             <hr>
                             <div class="espaco_botoes_botao_quadro_nova_tarefa">
-                                <button class="botao_acao_botao_quadro_nova_tarefa_a_fazer" id="cancelar_nova_a_fazer">Cancelar</button>
-                                <button class="botao_acao_botao_quadro_nova_tarefa_a_fazer" id="adicionar_nova_a_fazer">Adicionar</button>
+                                <button class="botao_acao_botao_quadro_nova_tarefa_a_fazer botao_interativo" id="cancelar_nova_a_fazer">Cancelar</button>
+                                <button class="botao_acao_botao_quadro_nova_tarefa_a_fazer botao_interativo" id="adicionar_nova_a_fazer">Adicionar</button>
                             </div>
                         </div>
                     </div>
@@ -58,11 +59,11 @@
                     <ul class="separador_titulos_botao">
                         <li class="separador_titulos_botao_item"></li>
                         <li class="separador_titulos_botao_item"><h4>FAZENDO</h4></li>
-                        <li class="botao_quadro"><button id="botao_limpar_quadro_fazendo"><img src="./img/Ícone Limpar_Quadro.png" alt="Ícone Limpar Quadro"></button></li>
+                        <li class="botao_quadro botao_interativo"><button id="botao_limpar_quadro_fazendo"><img src="./img/Ícone Limpar_Quadro.png" alt="Ícone Limpar Quadro"></button></li>
                     </ul>
                     <div id="tarefas_fazendo">
                     </div>
-                    <div class="item botao_nova_tarefa" id="nova_tarefa_fazendo">
+                    <div class="item botao_nova_tarefa botao_interativo" id="nova_tarefa_fazendo">
                         <div class="conteudo_botao_nova_tarefa">
                             <p>Adcionar Nova Tarefa</p>
                             <img src="./img/Ícone Novo.png" class="icone_nova_tarefa" alt="Ícone Nova Tarefa">
@@ -73,8 +74,8 @@
                         <div class="botao_quadro_nova_tarefa">
                             <hr>
                             <div class="espaco_botoes_botao_quadro_nova_tarefa">
-                                <button class="botao_acao_botao_quadro_nova_tarefa_fazendo" id="cancelar_nova_fazendo">Cancelar</button>
-                                <button class="botao_acao_botao_quadro_nova_tarefa_fazendo" id="adicionar_nova_fazendo">Adicionar</button>
+                                <button class="botao_acao_botao_quadro_nova_tarefa_fazendo botao_interativo" id="cancelar_nova_fazendo">Cancelar</button>
+                                <button class="botao_acao_botao_quadro_nova_tarefa_fazendo botao_interativo" id="adicionar_nova_fazendo">Adicionar</button>
                             </div>
                         </div>
                     </div>
@@ -87,11 +88,11 @@
                     <ul class="separador_titulos_botao">
                         <li class="separador_titulos_botao_item"></li>
                         <li class="separador_titulos_botao_item"><h4>FEITO</h4></li>
-                        <li class="botao_quadro"><button id="botao_limpar_quadro_feito"><img src="./img/Ícone Limpar_Quadro.png" alt="Ícone Limpar Quadro"></button></li>
+                        <li class="botao_quadro botao_interativo"><button id="botao_limpar_quadro_feito"><img src="./img/Ícone Limpar_Quadro.png" alt="Ícone Limpar Quadro"></button></li>
                     </ul>
                     <div id="tarefas_feito">
                     </div>
-                    <div class="item botao_nova_tarefa" id="nova_tarefa_feito">
+                    <div class="item botao_nova_tarefa botao_interativo" id="nova_tarefa_feito">
                         <div class="conteudo_botao_nova_tarefa">
                             <p>Adcionar Nova Tarefa</p>
                             <img src="./img/Ícone Novo.png" class="icone_nova_tarefa" alt="Ícone Nova Tarefa">
@@ -102,8 +103,8 @@
                         <div class="botao_quadro_nova_tarefa">
                             <hr>
                             <div class="espaco_botoes_botao_quadro_nova_tarefa">
-                                <button class="botao_acao_botao_quadro_nova_tarefa_feito" id="cancelar_nova_feito">Cancelar</button>
-                                <button class="botao_acao_botao_quadro_nova_tarefa_feito" id="adicionar_nova_feito">Adicionar</button>
+                                <button class="botao_acao_botao_quadro_nova_tarefa_feito botao_interativo" id="cancelar_nova_feito">Cancelar</button>
+                                <button class="botao_acao_botao_quadro_nova_tarefa_feito botao_interativo" id="adicionar_nova_feito">Adicionar</button>
                             </div>
                         </div>
                     </div>

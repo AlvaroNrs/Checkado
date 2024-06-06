@@ -1,5 +1,9 @@
+const doc = this.document.querySelector("html");
+const btnMudarNomeQuadro = document.querySelector('#botao_editar_titulo');
 
-const btnTrocarTema = document.querySelector('#botao_editar_titulo');
+const btnTrocarTema = document.querySelector('#botao_mudar_tema');
+const iconeTemaClaro = document.querySelector('#icone_tema_claro');
+const iconeTemaEscuro = document.querySelector('#icone_tema_escuro');
 
 const btnNovaTarefaAFazer = document.querySelector('#nova_tarefa_a_fazer');
 const btnNovaTarefaFazendo = document.querySelector('#nova_tarefa_fazendo');
@@ -30,8 +34,9 @@ const listaTarefasFeito = document.querySelector('#tarefas_feito');
 
 const txtNomeQuadro = document.querySelector('#nome_quadro');
 
-
 let nomeQuadro = localStorage.getItem('nomeQuadro') || 'Tarefas do Dia';
+
+let temaNoturno = localStorage.getItem('tema_noturno') || false;
 
 let tarefasAFazer = JSON.parse(localStorage.getItem('tarefas_af')) || [];
 let tarefasFazendo = JSON.parse(localStorage.getItem('tarefas_fa')) || [];
@@ -45,11 +50,37 @@ function atualizarTarefas(){
 
 }
 
+function atualizarTema(){
+    localStorage.setItem('tema_noturno', temaNoturno);
+}
+
+function atualizarTemaVisualmente(){
+    if(!temaNoturno){
+        iconeTemaClaro.classList.add('hidden');
+        iconeTemaEscuro.classList.remove('hidden');
+        doc.style.setProperty('--cor-final-fundo', 'var(--cor-final-fundo-modo-escuro)');
+        doc.style.setProperty('--rosa-salmao-fazendo', 'var(--rosa-salmao-fazendo-modo-escuro)');
+        doc.style.setProperty('--verde-a-fazer', 'var(--verde-a-fazer-modo-escuro)');
+        doc.style.setProperty('--rosa-salmao-fazendo', 'var(--rosa-salmao-fazendo-modo-escuro)');
+        temaNoturno = true;
+    }
+    else{
+        iconeTemaClaro.classList.remove('hidden');
+        iconeTemaEscuro.classList.add('hidden');
+        doc.style.setProperty('--cor-final-fundo', 'var(--cor-final-fundo-modo-claro)');
+        doc.style.setProperty('--rosa-salmao-fazendo', 'var(--rosa-salmao-fazendo-modo-claro)');
+        doc.style.setProperty('--verde-a-fazer', 'var(--verde-a-fazer-modo-claro)');
+        doc.style.setProperty('--rosa-salmao-fazendo', 'var(--rosa-salmao-fazendo-modo-claro)');
+        temaNoturno = true;
+        temaNoturno = false;
+    }
+    atualizarTema();
+}
 
 
 function mudarNomeQuadro()
 {
-    const novoNome = prompt("Qual é o novo nome do quadro?");
+    const novoNome = prompt("Qual será o novo nome do quadro?");
     if(novoNome){
         nomeQuadro = novoNome;
         atualizarNomeQuadro();
@@ -120,11 +151,13 @@ function adicionarNovaTarefa(tipo, tarefa){
 
     const botaoRetroceder = document.createElement('button');
     botaoRetroceder.classList.add('botao_acao_tarefa');
+    botaoRetroceder.classList.add('botao_interativo');
     botaoRetroceder.innerHTML = `
         <img src="./img/Ícone Retroceder.png" class="icone_retroceder_tarefa" alt="Ícone Retroceder Tarefa">`;
 
     const botaoAvancar = document.createElement('button');
     botaoAvancar.classList.add('botao_acao_tarefa');
+    botaoAvancar.classList.add('botao_interativo');
     botaoAvancar.innerHTML = `
         <img src="./img/Ícone Avancar.png" class="icone_avancar_tarefa" alt="Ícone Avançar Tarefa">`;
 
@@ -224,7 +257,7 @@ function adicionarFuncaoBotoesTarefa(div, botaoRetroceder, botaoAvancar, botaoEd
 }
 
 function editarTarefa(listaAtual, tarefa){
-    const novoNome = prompt("Qual é o novo nome da tarefa?");
+    const novoNome = prompt("Qual será o novo nome da tarefa?");
     if(novoNome){
         switch(listaAtual){
             case 'a_fazer':
@@ -246,17 +279,39 @@ function editarTarefa(listaAtual, tarefa){
 
 function moverTarefa(tarefa, listaAtual, alvo)
 {
-    switch(alvo){
+    let tarefaAMover = -1;
+    switch(listaAtual){
         case 'a_fazer':
+            tarefaAMover = tarefasAFazer.indexOf(tarefa);
+            tarefasAFazer.splice(tarefaAMover);
             atualizarTarefasAFazerVisualmente();
-            break;
-        case 'fazendo':
+            tarefasFazendo.push(tarefa);
             atualizarTarefasFazendoVisualmente();
             break;
+        case 'fazendo':
+            tarefaAMover = tarefasFazendo.indexOf(tarefa);
+            tarefasFazendo.splice(tarefaAMover);
+            atualizarTarefasFazendoVisualmente();
+            switch (alvo){
+                case 'a_fazer':
+                    tarefasAFazer.push(tarefa);
+                    atualizarTarefasAFazerVisualmente();
+                    break;
+                case 'feito':
+                    tarefasFeitas.push(tarefa);
+                    atualizarTarefasFeitoVisualmente();
+                    break;
+            }
+            break;
         case 'feito':
+            tarefaAMover = tarefasFeitas.indexOf(tarefa);
+            tarefasFeitas.splice(tarefaAMover);
             atualizarTarefasFeitoVisualmente();
+            tarefasFazendo.push(tarefa);
+            atualizarTarefasFazendoVisualmente();
             break;
     }
+    atualizarTarefas();
 }
 
 function apagarTarefa(listaAtual, tarefa)
@@ -268,28 +323,16 @@ function apagarTarefa(listaAtual, tarefa)
         case 'a_fazer':
             tarefaADeletar = tarefasAFazer.indexOf(tarefa);
             tarefasAFazer.splice(tarefaADeletar);
-            seletor = ".tarefa_a_fazer";
-            document.querySelectorAll(seletor).forEach(elemento => {
-                elemento.remove();
-            });
             atualizarTarefasAFazerVisualmente();
             break;
         case 'fazendo':
             tarefaADeletar = tarefasFazendo.indexOf(tarefa);
             tarefasFazendo.splice(tarefaADeletar);
-            seletor = ".tarefa_fazendo";
-            document.querySelectorAll(seletor).forEach(elemento => {
-                elemento.remove();
-            });
             atualizarTarefasFazendoVisualmente();
             break;
         case 'feito':
             tarefaADeletar = tarefasFeitas.indexOf(tarefa);
             tarefasFeitas.splice(tarefa);
-            seletor = ".tarefa_feito";
-            document.querySelectorAll(seletor).forEach(elemento => {
-                elemento.remove();
-            });
             atualizarTarefasFeitoVisualmente();
             break;
     }
@@ -463,10 +506,13 @@ function atualizarTarefasFeitoVisualmente(){
 }
 
 
-btnTrocarTema.addEventListener('click', () => {
+btnMudarNomeQuadro.addEventListener('click', () => {
     mudarNomeQuadro();
 });
 
+btnTrocarTema.addEventListener('click', () => {
+    atualizarTemaVisualmente();
+});
 
 btnNovaTarefaAFazer.addEventListener('click', () => {
     editarNovaTarefa('a_fazer');
@@ -497,6 +543,7 @@ function atualizarTextoNome(){
     txtNomeQuadro.textContent = nomeQuadro;
 }
 
+atualizarTemaVisualmente();
 atualizarTarefasAFazerVisualmente();
 atualizarTarefasFazendoVisualmente();
 atualizarTarefasFeitoVisualmente();

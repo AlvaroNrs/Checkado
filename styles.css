@@ -16,8 +16,8 @@
     --rosa-salmao-fazendo-modo-escuro: #E07881;
     --preto: #0F0F0F;
     --fonte-principal: "Jockey One", sans-serif;
-    --icone-modo-claro: url(./img/Ícone Light.png);
-    --icone-modo-escuro: url(./img/Ícone Dark.png);
+    --icone-modo-claro: "./img/Ícone Light.png";
+    --icone-modo-escuro: "./img/Ícone Dark.png";
 }
 
 body{
@@ -33,7 +33,7 @@ header{
     background-image: url(./img/Certo.png);
     background-repeat: no-repeat;
     background-position: center;
-    padding-bottom: 2.5em;
+    padding-bottom: 2.5rem;
 }
 
 header hr {
@@ -49,7 +49,7 @@ header h1 {
 
 main {
     display: block;
-    margin-top: 3em;
+    margin-top: 3rem;
     text-align: center;
     min-height: 60vh;
 }
@@ -59,12 +59,12 @@ main {
 }
 
 .titulo_header {
-    margin-top: 0.7em;
-    font-size: 4em;
+    margin-top: 0.7rem;
+    font-size: 4rem;
 }
 
 .subtitulo_header {
-    font-size: 2em;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -77,14 +77,14 @@ main {
 
 .titulo_quadro {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
 
 .separador_titulos_botao {
     display: flex;
     align-items: center;
-    padding-top: 1.25em;
+    padding-top: 1.2rem;
 }
 
 .separador_titulos_botao_item {
@@ -99,27 +99,28 @@ main {
     justify-content: center;
     display: flex;
     text-align: center;
-    margin-top: 1.2em;
+    margin-top: 1.r2em;
     margin-left: 3%;
     margin-right: 3%;
     column-gap: 4%;
-    border: var(--branco-fonte) 0.3em solid;
+    border: var(--branco-fonte) 0.3rem solid;
     border-radius: 10px;
 }
 
 .espaco_quadros_quadro {
-    margin: 2em 0;
-    border: var(--branco-fonte) 0.3em solid;
+    margin: 2rem 0;
+    border: var(--branco-fonte) 0.3rem solid;
     border-radius: 10px;
     width: 28%;
 }
 
 .conteudo_quadro {
-    margin: 2.75em 0;
+    margin: 2.75rem 0;
 }
 
 .espaco_quadros h4 {
-    font-size: 2.5em;
+    font-size: 2.2rem;
+    text-wrap: nowrap;
 }
 
 .a_fazer {
@@ -135,7 +136,7 @@ main {
 }
 
 #separador_titulos_botao_mudar_tema {
-    margin-top: 2em;
+    margin-top: 2rem;
     margin-left: 27%;
 }
 
@@ -159,32 +160,38 @@ main {
 }
 
 .item {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 .tarefas_tarefa {
-    border: var(--branco-fonte) 0.15em solid;
+    border: var(--branco-fonte) 0.15rem solid;
     border-radius: 10px;
-    font-size: 1.5em;
-    margin-top: 1.5em;
-    margin-left: 1em;
-    margin-right: 1.5em;
-    padding: 0.75em 0;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1.5rem;
+    padding: 0.75rem 0;
     align-items: center;
-    display: flex;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr, 1fr;
+    column-gap: 0;
 }
 
 .titulo_tarefa {
-    padding-left: 0.5em;
-    margin-right: -0.5em;
+    padding-left: 0.5rem;
+    margin-right: -0.5rem;
+    grid-column: 1/3;
+    text-wrap:nowrap;
 }
 
 .botoes_tarefa {
+    grid-column: 3;
     text-align: right;
     display: flex;
     align-items:center;
-    margin-left: 47.5%;
-    column-gap: 0.3em;
+    column-gap: 2.5%;
+    margin-right: 0.2rem;
 }
 
 .botao_acao_tarefa {
@@ -195,8 +202,8 @@ main {
 .quadro_nova_tarefa {
     border-radius: 10px;
     align-self: center;
-    margin-left: 1.5em;
-    margin-right: 1.5em;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     color: var(--preto);
     background-color: var(--branco-fonte);
 }
@@ -208,18 +215,18 @@ main {
     border: none;
     outline: none;
     font-family: var(--fonte-principal);
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-align: left;
-    margin-top: 1em;
-    padding-left: 0.5em;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
 }
 
 .quadro_nova_tarefa hr {
     background-color: var(--preto);
-    height: 0.2em;
-    margin-top: 0em;
+    height: 0.2rem;
+    margin-top: 0rem;
     width: 90%;
-    margin-left: 0.75em;
+    margin-left: 0.75rem;
 }
 
 .quadro_nova_tarefa input::placeholder {
@@ -236,60 +243,64 @@ main {
 
 
 .botao_acao_botao_quadro_nova_tarefa_a_fazer {
-    border: var(--verde-a-fazer) solid 0.15em;
+    border: var(--verde-a-fazer) solid 0.15rem;
 }
 
 
 .botao_acao_botao_quadro_nova_tarefa_fazendo {
-    border: var(--rosa-salmao-fazendo) solid 0.15em;
+    border: var(--rosa-salmao-fazendo) solid 0.15rem;
 }
 
 .botao_acao_botao_quadro_nova_tarefa_feito {
-    border: var(--azul-feito) solid 0.15em;
+    border: var(--azul-feito) solid 0.15rem;
 }
 
 .espaco_botoes_botao_quadro_nova_tarefa {
     display: flex;
     flex-direction: row;
     align-content: flex-start;
-    padding-left: 0.5em;
-    column-gap: 2em;
-    padding-bottom: 0.75em;
-    font-family: 1.5em;
+    padding-left: 0.5rem;
+    column-gap: 2rem;
+    padding-bottom: 0.75rem;
 }
 
 .espaco_botoes_botao_quadro_nova_tarefa button {
     font-family: var(--fonte-principal);
-    font-size: 1.3em;
-    padding-left: 2em;
-    padding-right: 2em;
+    font-size: 1.3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     border-radius: 10px;
 }
 
 
 .tarefas_tarefa p {
-    width: 40%;
+    width: 30%;
 }
 
 .conteudo_botao_nova_tarefa {
-    border: var(--branco-fonte) 0.15em solid;
+    width: auto;
+    border: var(--branco-fonte) 0.15rem solid;
     border-radius: 10px;
-    font-size: 1.5em;
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-    padding: 0.25em 0;
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding: 0.25rem 0;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
     align-items: center;
-    column-gap: 0.5em;
+    column-gap: 0.5rem;
+}
+
+.conteudo_botao_nova_tarefa p{
+    width: 80%;
 }
 
 
 .quadro_opcoes_tarefa {
     border-radius: 8px;
-    border: var(--branco-fonte) 0.15em solid;
+    border: var(--branco-fonte) 0.15rem solid;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
@@ -297,7 +308,7 @@ main {
     justify-content:space-evenly;
     align-content: center;
     position: absolute;
-    margin-top: 2em;
+    margin-top: 2rem;
     z-index: 10;
     right: 150;
 }
@@ -325,12 +336,12 @@ main {
     width: 100%;
     top: 100%;
     z-index: 10;
-    min-width: 6em;
+    min-width: 6rem;
     display: flex;
     flex-direction: column;
     color: var(--branco-fonte);
     font-family: var(--fonte-principal);
-    font-size: 1em;
+    font-size: 1rem;
     border: none;
 }
 
@@ -358,8 +369,8 @@ main {
 }
 
 .icone_nova_tarefa {
-    width: 0.9em;
-    height: 0.9em;
+    width: 0.9rem;
+    height: 0.9rem;
 }
 
 .icone_expandir_opcoes:hover ~ .quadro_opcoes_tarefa,
@@ -371,18 +382,18 @@ main {
 
 
 footer {
-    margin-top: 3.5em;
+    margin-top: 3.5rem;
     background-color: var(--preto);
 }
 
 .conteudo_footer {
-    padding: 1.5em 0;
+    padding: 1.5rem 0;
     text-align: center;
 }
 
 .conteudo_footer p {
-    font-size: 1.2em;
-    margin-top: 0.5em;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
 }
 
 .conteudo_footer a{
@@ -390,3 +401,79 @@ footer {
     color: var(--branco-fonte);
 }
 
+@media (max-width: 1450px) {
+    .titulo_tarefa {
+        font-size: 1.25rem;
+    }
+
+    .espaco_quadros {
+    column-gap: 3%;
+    border-radius: 6px;
+    }
+
+    .espaco_quadros_quadro {
+        border-radius: 6px;
+    }
+
+    .espaco_quadros h4  {
+        font-size: 1.75rem;
+        text-wrap: 2rem;
+    }
+
+    .tarefas_tarefa {
+        border: var(--branco-fonte) 0.2rem solid;
+        border-radius: 6px;
+    }
+
+    .conteudo_botao_nova_tarefa {
+        font-size: 1rem;
+    }
+
+    .espaco_botoes_botao_quadro_nova_tarefa {
+        font-size: 0.75rem;
+        border-radius: 6px;
+        column-gap: 1.25rem;
+    }
+
+    .espaco_botoes_botao_quadro_nova_tarefa button {
+        font-size: 0.75rem;
+        border-radius: 6px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .quadro_nova_tarefa {
+        border-radius: 6px;
+    }
+
+    .quadro_nova_tarefa input {
+        font-size: 1rem;
+        margin-top: 1rem;
+        padding-left: 0.75rem;
+    }
+
+    .quadro_nova_tarefa hr {
+        height: 0.1rem;
+    }
+}
+
+@media (max-width: 950px) {
+    
+    .espaco_quadros {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 0;
+    }
+
+    .espaco_quadros_quadro {
+        border: var(--branco-fonte) 0.3rem solid;
+        border-radius: 10px;
+        width: 90%;
+    }
+
+    #botao_mudar_tema {
+        padding-left: 15%;
+    }
+
+}
